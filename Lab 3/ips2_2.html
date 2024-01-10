@@ -1,108 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
+<html>
+   <style>
+table, th, td {
+  border:2px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+</style>
+   <title>
+   Timetable
+   </title>
+   <body>
+      <table align="center">
+        <h4 style="text-align: center;">Ian's Timetable</h1>
+       
+        <tr>
+        <td></td>
+        <td></td>
+        <td colspan="3">Morning</td>
+        <td colspan="1">Lunch</td>
+        <td colspan="4">Afternoon</td>
+        <td colspan="3">Evening</td>
+        </tr>
+       
+        <tr>
+        <td></td>
+        <td></td>
+        <td>9-<br>10<br>am</td>
+        <td>10-<br>11<br>am</td>
+        <td>11-<br>12<br>pm</td>
+        <td>1-<br>2<br>pm</td>
+        <td>2-<br>3<br>pm</td>
+        <td>3-<br>4<br>pm</td>
+        <td>4-<br>5<br>pm</td>
+        <td>5-6 pm</td>
+        <td>6-<br>7<br>pm</td>
+        <td>7-<br>8<br>pm</td>
+        <td>8-9<br>pm</td>
+        </tr>
+        
+         <tr>
+            <td rowspan="2">Work</td>
+         <td>Monday</td>
+         <td colspan="3">Development<br>Meeting</td>
+         <td> </td>
+         <td colspan="3">Client<br>Meeting</td>
+         <td>Commute</td>
+         <td colspan="3">Free</td>
+        </tr>
+       
+        <tr>
+        <td>Tuesday</td>
+        <td colspan="3">In office</td>
+        <td></td>
+        <td colspan="7">in Office</td>
+        </tr>
+       
+        <tr>
+            <td rowspan="2">Lecture</td>
+            <td>Wednesday</td>
+         <td colspan="3">CSC205</td>
+         <td> </td>
+         <td colspan="7">preparation</td>
+        </tr>
+       
+        <tr>
+            <td>Thursday</td>
+            <td colspan="3">MAM200</td>
+            <td> </td>
+            <td colspan="3">Tutorials<br>for<br>MAM200</td>
+            <td colspan="4">Free</td>
+        </tr>
+       
+        <tr>
+        <td> Research</td>
+        <td> Friday</td>
+        <td colspan="3"> Research</td>
+        <td>
 
-        form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            max-width: 600px;
-            margin: auto;
-        }
-
-        label {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            grid-column: 1;
-        }
-
-        input, select, button {
-            grid-column: 2;
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-
-        .checkbox-container {
-            grid-column: span 2;
-            margin-bottom: 10px;
-        }
-
-        .checkbox-container label {
-            margin-bottom: 5px;
-            margin-right: 10px;
-        }
-
-        .button-container {
-            grid-column: span 2;
-            display: flex;
-            justify-content: space-between;
-        }
-    </style>
-</head>
-<body>
-
-    <form>
-        <h1 style="background-color: yellow; text-align: center;">Registration Form</h1>
-
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address" required>
-
-        <div class="checkbox-container">
-            <label>Game:</label>
-            <input type="checkbox" id="game1" name="games[]" value="Game 1">
-            <label for="game1">Game 1</label>
-
-            <input type="checkbox" id="game2" name="games[]" value="Game 2">
-            <label for="game2">Game 2</label>
-
-            <input type="checkbox" id="game3" name="games[]" value="Game 3">
-            <label for="game3">Game 3</label>
-        </div>
-
-        <label></label>
-        <div class="checkbox-container">
-            <input type="radio" id="male" name="gender" value="male" required>
-            <label for="male">Male</label>
-
-            <input type="radio" id="female" name="gender" value="female" required>
-            <label for="female">Female</label>
-        </div>
-
-        <label for="age">Age:</label>
-        <select id="age" name="age" required>
-            <option value="18-25">18-25</option>
-            <option value="26-35">26-35</option>
-            <option value="36-45">36-45</option>
-        </select>
-
-        <label for="photo">Photo:</label>
-        <input type="file" id="photo" name="photo" accept="image/*">
-
-        <div class="button-container">
-            <button type="button" onclick="alert('Button Clicked!')">Click Me</button>
-            <button type="reset">Reset</button>
-            <button type="submit">Submit</button>
-        </div>
-    </form>
-
-</body>
+        </td>
+        <td colspan="7"> Research</td>
+        </tr>
+      </table>
+   </body>
 </html>
