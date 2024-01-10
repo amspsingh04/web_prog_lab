@@ -1,0 +1,87 @@
+<html>
+   <style>
+table, th, td {
+  border:2px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+</style>
+   <title>
+   Registration Form
+   </title>
+   <form>
+   <body>
+      <table >
+       
+        <tr>
+        <th bgcolor="yellow" colspan="2">Registration Form</th>
+        </tr>
+
+        <tr>
+            <td> Enter Name: </td>
+            <td><input type="text" id="name" name="name" required></td>
+        </tr>
+       
+        <tr>
+            <td> Password: </td>
+            <td><input type="text" id="name" name="name" required></td>
+        </tr>
+        <tr>
+            <td> Address: </td>
+            <td><input type="text" id="name" name="name" required></td>
+        </tr>
+        
+        <tr>
+            <td> Game: </td>
+            <td>
+                <input type="checkbox" id="game1" name="games[]" value="Game 1">
+            <label for="game1">Game 1</label>
+            <br>
+            <input type="checkbox" id="game2" name="games[]" value="Game 1">
+            <label for="game2">Game 2</label>
+            <br>
+            <input type="checkbox" id="game3" name="games[]" value="Game 1">
+            <label for="game3">Game 3</label>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td>Gender: </td>
+            <td>
+                <input type="radio" id="male" name="gender" value="male" required>
+            <label for="male">Male</label>
+
+            <input type="radio" id="female" name="gender" value="female" required>
+            <label for="female">Female</label>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Select age: </td>
+            <td><label for="age"></label>
+        <select id="age" name="age" required>
+            <option value="Select">Select age</option>
+            <option value="18-25">18-25</option>
+            <option value="26-35">26-35</option>
+            <option value="36-45">36-45</option>
+        </select></td>
+        </tr>
+
+        <tr>
+            <td>Select Photo</td>
+            <td><label for="photo"></label>
+                <input type="file" id="photo" name="photo" accept="image/*"></td>
+        </tr>
+
+        <tr>
+           <td colspan = 3> <button type="button" onclick="alert('Button Clicked!')">Click Me</button>
+            <button type="reset">Reset</button>
+            <button type="submit">Submit</button>
+        </td>
+        </tr>
+
+      </table>
+    </form>
+   </body>
+</html>
