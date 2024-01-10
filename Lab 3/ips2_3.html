@@ -14,41 +14,46 @@ table, th, td {
       <table >
        
         <tr>
-        <th bgcolor="yellow" colspan="2">Registration Form</th>
+        <th bgcolor="yellow" style="color: crimson;" colspan="2">Registration Form</th>
         </tr>
 
         <tr>
-            <td> Enter Name: </td>
-            <td><input type="text" id="name" name="name" required></td>
+            <td bgcolor="turquoise"> Enter Name: </td>
+            <td bgcolor="turquoise"><input type="text" id="name" name="name" required></td>
         </tr>
        
         <tr>
-            <td> Password: </td>
-            <td><input type="text" id="name" name="name" required></td>
+            <td bgcolor="turquoise"> Password: </td>
+            <td bgcolor="turquoise"><input type="text" id="name" name="name" required></td>
         </tr>
         <tr>
-            <td> Address: </td>
-            <td><input type="text" id="name" name="name" required></td>
+            <td bgcolor="turquoise"> Address: </td>
+            <td bgcolor="turquoise"><input type="text" id="name" name="name" required></td>
         </tr>
         
-        <tr>
-            <td> Game: </td>
-            <td>
-                <input type="checkbox" id="game1" name="games[]" value="Game 1">
-            <label for="game1">Game 1</label>
+        <tr style="text-align: center;">
+            <td bgcolor="turquoise"> Game: </td>
+            <td bgcolor="turquoise">
+                <input type="checkbox" id="Hockey">
+            <label for="Hockey">Hockey</label>
             <br>
-            <input type="checkbox" id="game2" name="games[]" value="Game 1">
-            <label for="game2">Game 2</label>
+            <input type="checkbox" id="Football">
+            <label for="Football">Football</label>
             <br>
-            <input type="checkbox" id="game3" name="games[]" value="Game 1">
-            <label for="game3">Game 3</label>
-
+            <input type="checkbox" id="Badminton">
+            <label for="Badminton">Badminton</label>
+            <br>
+            <input type="checkbox" id="Cricket">
+            <label for="Cricket">Cricket</label>
+            <br>
+            <input type="checkbox" id="Volleyball">
+            <label for="Volleyball">Volleyball</label>
             </td>
         </tr>
 
         <tr>
-            <td>Gender: </td>
-            <td>
+            <td bgcolor="turquoise">Gender: </td>
+            <td bgcolor="turquoise">
                 <input type="radio" id="male" name="gender" value="male" required>
             <label for="male">Male</label>
 
@@ -58,8 +63,8 @@ table, th, td {
         </tr>
 
         <tr>
-            <td>Select age: </td>
-            <td><label for="age"></label>
+            <td bgcolor="turquoise">Select age: </td>
+            <td bgcolor="turquoise"><label for="age"></label>
         <select id="age" name="age" required>
             <option value="Select">Select age</option>
             <option value="18-25">18-25</option>
@@ -69,13 +74,13 @@ table, th, td {
         </tr>
 
         <tr>
-            <td>Select Photo</td>
-            <td><label for="photo"></label>
+            <td bgcolor="turquoise">Select Photo</td>
+            <td bgcolor="turquoise"><label for="photo"></label>
                 <input type="file" id="photo" name="photo" accept="image/*"></td>
         </tr>
 
         <tr>
-           <td colspan = 3> <button type="button" onclick="alert('Button Clicked!')">Click Me</button>
+           <td colspan = 3 bgcolor="turquoise"> <button type="button">Click Me</button>
             <button type="reset">Reset</button>
             <button type="submit">Submit</button>
         </td>
