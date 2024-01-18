@@ -1,0 +1,58 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  header, nav, section {
+    margin: 20px;
+  }
+  
+  nav a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  #featured-products, #bakery-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  article {
+    text-align: center;
+    margin: 10px;
+  }
+  
+  article img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 5px;
+  }
+  
+  #contact-form {
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
