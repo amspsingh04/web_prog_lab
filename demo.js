@@ -1,3 +1,4 @@
+
 var string='Hi'
 function reverse(str){
 let newString = "";
@@ -7,7 +8,7 @@ let newString = "";
     return newString;
 }
 function fact(num){
-fact=1
+let fact = readline.question("Enter number: ")
 for(let i=1;i<=num;i++){
 fact*=i
 }
