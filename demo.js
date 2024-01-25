@@ -8,7 +8,6 @@ let newString = "";
     return newString;
 }
 function fact(num){
-let fact = readline.question("Enter number: ")
 for(let i=1;i<=num;i++){
 fact*=i
 }
