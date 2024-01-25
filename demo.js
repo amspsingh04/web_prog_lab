@@ -21,6 +21,32 @@ return "Palindrome"
 else
 return "Not a Palindrome"
 }
+function findMax(numbers) {
+    let max = numbers[0];
+    for (let i = 1; i < numbers.length; i++) {
+        if (numbers[i] > max) {
+            max = numbers[i];
+        }
+    }
+    return max;
+}
+function printNumbers() {
+    for (let i = 1; i <= 100; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log("FlipFlop");
+        } else if (i % 3 === 0) {
+            console.log("Flip");
+        } else if (i % 5 === 0) {
+            console.log("Flop");
+        } else {
+            console.log(i);
+        }
+    }
+}
+
+
 console.log(reverse(string))
 console.log(fact(5))
 console.log(palin('MOM'))
+console.log(findMax([10,20,5,8,9]));
+printNumbers();
