@@ -1,21 +1,21 @@
 .artist-info{
-background-color: #FAD02E;
-padding: 15px;
-margin: 20px;
-box-shadow: 0 5px 10px rgba(0,200,100,10);
+    background-color:#FAD02E;
+    box-shadow: 0 5px 10px;
+    padding: 15px;
+    margin: 20px;
 }
 
-.artist-info:hover .artist-name{
-color: #FF0000;
-font-weight: bold;
+.artist-name:hover{
+    color:#FF0000
 }
 
 #artist-title{
-font-family: Helvetica, Arial, sans-serif;
-font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    line-height: normal;
 }
 
-.artist-info p{
-line-height: 1.5;
-font-style: italic;
+.artist-bio{
+    font-style: italic;
 }
+
