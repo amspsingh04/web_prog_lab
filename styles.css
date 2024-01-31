@@ -1,0 +1,21 @@
+.artist-info{
+background-color: #FAD02E;
+padding: 15px;
+margin: 20px;
+box-shadow: 0 5px 10px rgba(0,200,100,10);
+}
+
+.artist-info:hover .artist-name{
+color: #FF0000;
+font-weight: bold;
+}
+
+#artist-title{
+font-family: Helvetica, Arial, sans-serif;
+font-weight: bold;
+}
+
+.artist-info p{
+line-height: 1.5;
+font-style: italic;
+}
