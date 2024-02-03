@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine?</title>
+<style>
+  body {
+    background-color: pink;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding-top: 100px;
+  }
+  #question {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  #yes {
+    transition: transform 0.3s ease-in-out;
+  }
+</style>
+</head>
+<body>
+
+<div id="question">Will you be my Valentine?</div>
+<button id="yes">Yes</button>
+<button id="no">No</button>
+
+<!-- Import the canvas-confetti library -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.min.js"></script>
+
+<script>
+document.getElementById('yes').addEventListener('click', function() {
+  // Replace the alert with the confetti effect
+  confetti({
+    particleCount: 100,
+    spread: 70,
+    origin: { y: 0.6 }
+  });
+});
+
+document.getElementById('no').addEventListener('click', function() {
+  alert('No was never an option');
+  document.getElementById('yes').style.transform = 'scale(1.5)';
+});
+</script>
+
+</body>
+</html>
