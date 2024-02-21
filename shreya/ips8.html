@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <style>
+            #product-image{
+                width: 200px;
+                height:200px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>COLOURS</h1>
+        <label for="color-dropdown">Select Color:</label>
+        <select id="color-dropdown"
+        onchange="changeProductImage()"
+        onmouseout="displayTooltip()">
+    <option value="red">Red</option>
+    <option value="blue">Blue</option>
+    <option value="green">Green</option>
+    </select>
+
+    <img id="product-image" src="red.jpg" alt="product-image">
+
+    <div id="product-image"></div>
+    <div id="tooltip"></div>
+
+    <script>
+        function changeProductImage(){
+            var color=
+            document.getElementById("color-dropdown").value;
+            var imagePath=color+".jpg";
+            document.getElementById("product-image").src=imagePath;
+        }
+        function displayTooltip(){
+            var tooltip=
+            document.getElementById("tooltip");
+            var color=
+            document.getElementById("color-dropdown").value;
+            tooltip.innerText="selected color:"+color;
+        }
+    </script>
+    </body>
+</html>
