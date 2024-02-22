@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graph Dashboard with Tooltips</title>
+<style>
+  #graphCanvas {
+    border: 1px solid #ccc;
+    margin: 25px auto;
+    display: block; 
+  }
+
+  .tooltip {
+    position: absolute;
+    padding: 6px;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    visibility: hidden;
+    z-index: 1;
+    pointer-events: none; 
+  }
+</style>
+</head>
+<body onload="drawGraph()">
+
+<canvas id="graphCanvas" width="600" height="400"></canvas>
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+function drawGraph() {
+  const canvas = document.getElementById('graphCanvas');
+  const ctx = canvas.getContext('2d');
+  const tooltip = document.getElementById('tooltip');
+
+  const pointsData = [
+    { x: 250, y: 350, value: "500, 700" },
+     { x: 300, y: 300, value: "400, 600" },
+     { x: 450, y: 250, value: "300, 500" },
+      { x: 450, y: 200, value: "300, 400" },
+      { x: 500, y: 150, value: "200, 300" },
+    { x: 500, y: 150, value: "100, 300" },
+  ];
+  
+  ctx.strokeStyle = '#007bff'; 
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  pointsData.forEach((point, index) => {
+    if(index === 0) {
+      ctx.moveTo(point.x, point.y); 
+    } else {
+      ctx.lineTo(point.x, point.y); 
+    }
+  });
+  ctx.stroke(); 
+  pointsData.forEach(point => {
+    ctx.fillStyle = '#dc3545'; 
+    ctx.beginPath();
+    ctx.arc(point.x, point.y, 5, 0, Math.PI * 2); 
+    ctx.fill(); 
+  });
+  canvas.addEventListener('mousemove', event => {
+    const rect = canvas.getBoundingClientRect();
+    const mouseX = event.clientX - rect.left;
+    const mouseY = event.clientY - rect.top;
+    const radius = 5; 
+    const hoverPoint = pointsData.find(p =>
+      mouseX >= p.x - radius && mouseX <= p.x + radius &&
+      mouseY >= p.y - radius && mouseY <= p.y + radius
+    );
+
+    if(hoverPoint) {
+      tooltip.style.visibility = 'visible';
+      tooltip.style.left = (event.clientX + 15) + 'px';
+      tooltip.style.top = (event.clientY + 15) + 'px';
+      tooltip.textContent = hoverPoint.value;
+    } else {
+      tooltip.style.visibility = 'hidden';
+    }
+  });
+}
+</script>
+</body>
+</html>
+
