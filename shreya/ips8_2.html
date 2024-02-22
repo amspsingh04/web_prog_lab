@@ -1,0 +1,64 @@
+<html>
+   <head>
+      <title>
+         Drawing App
+      </title>
+      <style>
+         body{
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin-top:10px;
+         }
+         #toolbox{
+         margin-bottom:10px;
+         }
+         canvas{
+         border:1px solid #000
+         }
+      </style>
+   </head>
+   <body onload="initCanvas()">
+      <div id="toolbox">
+         <label for="brushSize">Brush Size:</label>
+         <select id="brushSize">
+               <option value="5"> Small </option>
+               <option value="10"> Medium </option>
+         </select>
+         <label for="colorPicker">Color:</label>
+         <input type="color" id="colorPicker" value="#000000">
+      </div>
+      <canvas id="Canvas" width="800" height="600"></canvas>
+      <script>
+         function initCanvas(){
+         const canvas=document.getElementById('Canvas');
+         const ctx = canvas.getContext('2d');
+         let painting = false;
+         function startPosition(e){
+            painting=true;
+            draw(e);
+            }
+         function finishedPosition(){
+         painting=false;
+         ctx.beginPath();
+         }
+         function draw(e){
+            if(!painting) return;
+            ctx.lineWidth = document.getElementById('brushSize').value;
+            ctx.strokeStyle = document.getElementById('colorPicker').value;
+            ctx.lineCap='round';
+            
+            ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(e.clientX - canvas.offsetLeft,e.clientY - canvas.offsetTop);   
+            }
+          canvas.addEventListener('mousedown', startPosition);
+          canvas.addEventListener('mouseup', finishedPosition);
+          canvas.addEventListener('mousemove', draw);
+          canvas.addEventListener('mouseleave', finishedPosition);
+         }
+         
+      </script>
+   </body>
+</html>
