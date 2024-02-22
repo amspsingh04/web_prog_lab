@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Photo Editing Tool</title>
+<style>
+    .photo-editor {
+    text-align: center;
+}
+
+#userImage {
+    width: 300px;
+    height: auto;
+    margin: 20px;
+}
+
+.filter-preview-container {
+    display: none;
+    position: absolute;
+}
+
+.filter-preview {
+    border: 1px solid #999;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+</style></head>
+<body onload="fetchUserImage()">
+<div class="photo-editor">
+    <h2>Online Photo Editor</h2>
+    <img id="userImage" src="placeholder-image.avif" alt="Your Upload" />
+
+    <label for="filterSelect">Select a Filter:</label>
+    <select id="filterSelect" onchange="applyFilter()">
+        <option value="">--Select a filter--</option>
+        <option value="grayscale(100%)">Grayscale</option>
+        <option value="sepia(100%)">Sepia</option>
+        <option value="blur(5px)">Blur</option>
+        <option value="brightness(150%)">Brightness</option>
+    </select>
+
+    <div id="filterPreviewContainer" class="filter-preview-container"></div>
+</div>
+<script>
+    // Fetch and display the user's image
+function fetchUserImage() {
+    // In a real application, you would fetch the user's image from a server or user's file input
+    var imgSrc = 'placeholder-image.avif'; // Placeholder src
+    document.getElementById('userImage').src = imgSrc;
+}
+
+// Apply the selected filter to the user's image
+function applyFilter() {
+    var selectedFilter = document.getElementById('filterSelect').value;
+    var userImage = document.getElementById('userImage');
+    userImage.style.filter = selectedFilter;
+}
+
+// Preview the filter on hover
+function previewFilter(filter) {
+    var userImage = document.getElementById('userImage');
+    var filterPreviewContainer = document.getElementById('filterPreviewContainer');
+    var filterPreviewImage = document.createElement('img');
+
+    filterPreviewImage.src = userImage.src; // Use the same src as the user's image
+    filterPreviewImage.style.filter = filter.value; // Apply the filter
+    filterPreviewImage.className = 'filter-preview';
+
+    // Clear out any existing preview
+    filterPreviewContainer.innerHTML = '';
+    filterPreviewContainer.appendChild(filterPreviewImage);
+
+    filterPreviewContainer.style.display = 'block';
+    filterPreviewContainer.style.left = filter.pageX + 'px';
+    filterPreviewContainer.style.top = filter.pageY + 'px';
+}
+
+// Use event listeners for each filter option
+document.querySelectorAll("#filterSelect option").forEach(option => {
+    option.addEventListener("mousemove", (event) => previewFilter(event.target));
+    option.addEventListener("mouseout", () => {
+        document.getElementById('filterPreviewContainer').style.display = 'none';
+    });
+});
+
+</script>
+</body>
+</html>

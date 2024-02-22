@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Survey Tooltips</title>
+<style>
+    .tooltip {
+    position: absolute;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1000;
+}
+
+</style>
+</head>
+<body>
+
+<h2>Select Survey Category</h2>
+<select id="surveyCategory" onchange="loadSurveyQuestions()">
+    <option value="">--Select a category--</option>
+    <option value="technology">Technology</option>
+    <option value="health">Health</option>
+    <option value="education">Education</option>
+</select>
+
+<div id="surveyQuestions">
+</div>
+<script>
+    const surveyData = {
+    technology: [
+        { question: "What is your favorite programming language?", tooltip: "Think about the language you use most often." },
+        { question: "Which gadget can't you live without?", tooltip: "This could be a smartphone, laptop, etc." }
+    ],
+    health: [
+        { question: "How many hours do you exercise per week?", tooltip: "Regular exercise is crucial for good health." },
+        { question: "Do you follow a specific diet?", tooltip: "Such as vegan, keto, intermittent fasting, etc." }
+    ],
+    education: [
+        { question: "Have you taken online courses?", tooltip: "Online platforms offer various courses today." },
+        { question: "What is your highest level of education?", tooltip: "This includes formal and informal education." }
+    ]};
+
+// Function to load the selected survey questions
+    function loadSurveyQuestions() {
+        const selectedCategory = document.getElementById('surveyCategory').value;
+        const questionsContainer = document.getElementById('surveyQuestions');
+        questionsContainer.innerHTML = ''; // Clear previous questions
+
+        if (selectedCategory && surveyData[selectedCategory]) {
+            surveyData[selectedCategory].forEach((item, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.innerHTML = `
+                    <p onmousemove="showTooltip(event, ${index})" onmouseout="hideTooltip(${index})">
+                        ${item.question}
+                    </p>
+                    <div id="tooltip${index}" class="tooltip" style="display:none;">
+                        ${item.tooltip}
+                    </div>
+                `;
+                questionsContainer.appendChild(questionDiv);
+            });
+        }
+    }
+
+    // Function to display the tooltip
+    function showTooltip(event, index) {
+        const tooltip = document.getElementById('tooltip' + index);
+        tooltip.style.display = 'block';
+        tooltip.style.left = event.pageX + 'px'; // Position the tooltip with the mouse
+        tooltip.style.top = event.pageY + 'px';
+    }
+
+    // Function to hide the tooltip
+    function hideTooltip(index) {
+        const tooltip = document.getElementById('tooltip' + index);
+        tooltip.style.display = 'none';
+    }
+</script>
+</body>
+</html>
