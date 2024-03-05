@@ -1,12 +1,82 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-commerce Cart</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+.cart-item {
+  margin-bottom: 10px;
+}
+#totalPrice {
+  font-weight: bold;
+}
+</style>
+</head>
 <body>
-<script>  
-function msg(){  
-alert("hello! this is message");  
-}  
-</script>  
-<input type="button" onclick="msg()" value="call function"/>  
+
+<div class="cart-item">
+  <label for="penQuantity">Pen (Price $1.00 each, Stock: 100)</label>
+  <input type="number" id="penQuantity" data-price-per-unit="1.00" data-max-stock="100" value="1" class="quantity-input">
+</div>
+
+<div class="cart-item">
+  <label for="pencilQuantity">Pencil (Price $0.50 each, Stock: 200)</label>
+  <input type="number" id="pencilQuantity" data-price-per-unit="0.50" data-max-stock="200" value="1" class="quantity-input">
+</div>
+
+<div class="cart-item">
+  <label for="markerQuantity">Blackboard Marker (Price $1.50 each, Stock: 50)</label>
+  <input type="number" id="markerQuantity" data-price-per-unit="1.50" data-max-stock="50" value="1" class="quantity-input">
+</div>
+
+<p>Total Price: $<span id="totalPrice">0.00</span></p>
+<button id="updateQuantityButton">Update Quantity</button>
+
+<script>
+document.querySelectorAll('.quantity-input').forEach(input => {
+  input.addEventListener('input', calculateTotal);
+});
+
+document.getElementById('updateQuantityButton').addEventListener('click', confirmQuantity);
+
+function calculateTotal() {
+  let total = 0;
+  document.querySelectorAll('.quantity-input').forEach(input => {
+    const quantity = parseInt(input.value, 10) || 0;
+    const pricePerUnit = parseFloat(input.dataset.pricePerUnit);
+    total += quantity * pricePerUnit;
+  });
+  document.getElementById('totalPrice').textContent = total.toFixed(2);
+}
+
+function confirmQuantity() {
+  let message = 'Quantities updated successfully:\n';
+  let allValid = true;
+  document.querySelectorAll('.quantity-input').forEach(input => {
+    const quantity = parseInt(input.value, 10) || 0;
+    const maxStock = parseInt(input.dataset.maxStock, 10);
+    if (quantity > maxStock) {
+      allValid = false;
+      message = `Error: The quantity for ${input.previousElementSibling.textContent} cannot exceed ${maxStock}.`;
+    }
+  });
+
+  if (allValid) {
+    // Proceed with any backend update logic here
+    alert(message);
+  } else {
+    alert(message);
+    // Optionally, roll back any invalid quantities here
+  }
+}
+
+// Initial calculation of the total
+calculateTotal();
+</script>
+
 </body>
 </html>
-
- 
