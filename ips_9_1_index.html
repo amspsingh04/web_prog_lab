@@ -1,0 +1,61 @@
+<html>
+   <head>
+      <style>
+      fieldset {
+        background-color: #eeeeee;
+      }
+
+      legend {
+        background-color: gray;
+        color: white;
+        padding: 5px 10px;
+      }
+
+      input {
+        margin: 5px;
+      }
+      </style>
+   </head>
+   <body>
+
+
+
+      <form action="/action_page.php">
+       <fieldset>
+        <legend>Form:</legend>
+        <label for="fname">Full name:</label>
+        <input type="text" id="fname" name="fname"><br><br>
+  
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        
+        <label for="job">Job Title:</label>
+        <input type="text" id="job" name="job"><br><br>
+        
+        <label for="c">Company Name:</label>
+        <input type="text" id="c" name="c"><br><br>
+        
+         <label for="Country">Country</label>
+
+            <select name="Country" id="Country">
+              <option value="India">India</option>
+              <option value="UK">UK</option>
+              <option value="US">US</option>
+              <option value="Saudi">Saudi</option>
+            </select> 
+            <br><br>Workshop:
+         <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+         <label for="vehicle1"> WS1</label> 
+         <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+         <label for="vehicle2"> WS2</label>
+         <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+         <label for="vehicle3"> WS3</label> <br><br>
+         
+         <input id="checkbox" type="checkbox" />
+         <label for="checkbox"> I agree to these Terms and Conditions<br><br>
+        <input type="submit" value="Submit">
+       </fieldset>
+      </form>
+
+   </body>
+</html>
