@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Canvas Drawing</title>
+<style>
+  canvas {
+    border: 1px solid black;
+  }
+</style>
+</head>
+<body>
+
+<canvas id="drawingCanvas" width="400" height="400"></canvas>
+
+<script>
+const canvas = document.getElementById('drawingCanvas');
+const ctx = canvas.getContext('2d');
+
+// Draw a rectangle
+ctx.fillStyle = 'blue';
+ctx.fillRect(10, 10, 150, 100);
+
+// Draw a circle
+ctx.beginPath();
+ctx.arc(250, 70, 50, 0, Math.PI * 2);
+ctx.fillStyle = 'green';
+ctx.fill();
+
+// Draw a triangle
+ctx.beginPath();
+ctx.moveTo(100, 200);
+ctx.lineTo(150, 300);
+ctx.lineTo(50, 300);
+ctx.closePath();
+ctx.fillStyle = 'red';
+ctx.fill();
+
+// You can continue drawing more shapes and combine them as needed
+</script>
+
+</body>
+</html>
