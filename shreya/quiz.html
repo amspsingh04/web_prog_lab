@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz Cards with Z-index</title>
+<style>
+#cardContainer {
+display: flex; 
+justify-content: center; 
+align-items: center; 
+height: 300px; 
+position: relative; 
+}
+
+.card {
+position: absolute; 
+width: 200px; 
+height: 300px; 
+background-color: #fff; 
+border-radius:10px; 
+box-shadow:0px0px10pxrgba(0,0,0,0.1); 
+padding:20px; 
+transition: all .5s ease-in-out; 
+}
+
+/* Update z-index on active card */
+.card.active { z-index :1; }
+</style>
+</head>
+
+<body>
+
+<div id="cardContainer"></div>
+
+<script>
+
+const cardData = ["Question1?", "Question2?", "Question3?", "Question4?"];
+let currentZIndex = cardData.length;
+
+// Create the cards and append them to the container
+const container = document.getElementById("cardContainer");
+cardData.forEach(question => {
+
+const card = document.createElement("div");
+card.className = "card";
+card.innerText = question;
+container.appendChild(card);
+
+// Initially stack cards by decreasing z-index
+card.style.zIndex = currentZIndex--;
+
+// Add click event to each card
+card.addEventListener("click", function(){
+this.style.zIndex = --currentZIndex;
+setTimeout(() => { // Move the card to bottom after transition
+container.appendChild(this);
+},500);
+
+});
+});
+
+function moveToBottom() {
+if(container.children.length >0){
+container.children[0].click();
+}
+}
+
+// Initial card is set as active with highest z-index
+if(container.children.length>0) {
+container.children[container.children.length -1].classList.add('active');
+}
+
+window.moveToBottom= moveToBottom;
+
+</script>
+
+<!-- Add the button outside of script tag for better separation of concerns -->
+<button onclick="moveToBottom()">Next Question</button>
+
+</body>
+</html> 

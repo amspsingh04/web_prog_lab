@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated House</title>
+
+<style>
+  body {
+    margin: 0;
+    overflow: hidden; /* Prevent scrolling */
+    background: #e7f2f7; /* Light blue background */
+  }
+
+  canvas {
+    position: absolute;
+    z-index: 1;
+  }
+
+  #house {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background-color: #8a7f8d; /* House color */
+    z-index: 2; /* Ensures it's on top */
+    border-bottom: 40px solid #654321; /* Brown roof */
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    transform: translateY(-40px);
+    transition: transform 0.5s ease-in-out;
+  }
+</style>
+</head>
+<body>
+
+<div id="house"></div>
+
+<script>
+  // Start position for the House
+  let xPos = -150;
+
+  // Get the house element
+  const houseElem = document.getElementById('house');
+
+  function animate() {
+    xPos = (xPos + 1) % window.innerWidth; // Wrap around the screen width
+    houseElem.style.left = `${xPos}px`;
+
+    // If the house reaches a certain point, make it "jump"
+    if (xPos % 300 === 0) {
+      houseElem.style.transform = 'translateY(-140px)';
+      setTimeout(() => {
+        houseElem.style.transform = 'translateY(-40px)';
+      }, 250); // This timeout decides how long the jump lasts
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();    
+</script>
+</body>
+</html>
